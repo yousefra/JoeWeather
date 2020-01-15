@@ -1,0 +1,13 @@
+<div class="forecasts">
+    <div class="box" *ngFor="let f of forecasts">
+        <div class="info">
+            <div class="date">25 June</div>
+            <div class="desc">{{f.weather[0].description}}</div>
+            <!-- <div class="desc">{{f?.weather[0].description}}</div> -->
+        </div>
+        <div class="icon" [style.background-color]="colors[f.weather[0].icon]">
+            <div class="temp">{{f?.main.temp}}°</div>
+            <img src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png" alt="">
+        </div>
+    </div>
+</div>

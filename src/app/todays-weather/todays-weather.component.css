@@ -1,0 +1,45 @@
+.box {
+    background: linear-gradient(0deg, #5F4EEA, #6452F0);
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+}
+
+.temp {
+    padding-top: 40px;
+    font-weight: 400;
+    font-size: 82px;
+}
+
+.temp p {
+    margin: 0;
+}
+
+.icon {
+    position: absolute;
+    top: 70px;
+    right: 70px;
+    bottom: auto;
+}
+
+.icon .ic1 {
+    opacity: .5;
+}
+
+.icon .ic2 {
+    opacity: .8;
+}
+
+.icon .ic3 {
+    opacity: .3;
+}
+
+.icon .ic4 {
+    opacity: .6;
+}
+
+.status {
+    padding-bottom: 20px;
+    margin-top: -15px;
+    font-size: 21px;
+}

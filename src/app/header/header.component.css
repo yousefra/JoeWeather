@@ -1,0 +1,17 @@
+header {
+  height: 20px;
+  display: grid;
+  grid-template-columns: 20px auto 20px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
