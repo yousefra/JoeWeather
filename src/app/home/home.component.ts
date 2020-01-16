@@ -30,14 +30,12 @@ export class HomeComponent implements OnInit {
       const lon = res.coords.longitude;
       this.weatherAPI.getTodayByCoords(lat, lon).subscribe(res => {
         this.todaysWeather = res;
-        // this.todaysWeather.main.temp = this.weatherAPI.convertFtoC(this.todaysWeather.main.temp);
       });
       this.weatherAPI.getFourDaysByCoords(lat, lon).subscribe(res => {
         this.forecasts = res.list
           .filter(elem => elem.dt > this.currentDate && elem.dt < this.finalDate)
           .filter(elem => new Date(elem.dt_txt).getHours() === 0);
-          // .map(elem => elem.main.temp = this.weatherAPI.convertFtoC(elem.main.temp));
-        });
+      });
     });
   }
 

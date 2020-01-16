@@ -26,8 +26,4 @@ export class WeatherAPIService {
   getFourDaysByCoords(lat: number, lon: number) {
     return this.http.get(`${this.URL}/forecast?lat=${lat}&lon=${lon}&units=metric&APPID=${this.APPID}`);
   }
-
-  convertFtoC(f) {
-    return parseFloat((f - 273.5).toFixed(1));
-  }
 }

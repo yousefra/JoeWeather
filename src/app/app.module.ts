@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodaysWeatherComponent } from './todays-weather/todays-weather.component';
-import { DetailedWeatherComponent } from './detailed-weather/detailed-weather.component';
+import { DetailedWeatherComponent } from './todays-weather/detailed-weather/detailed-weather.component';
 import { DaysWeatherComponent } from './dyas-weather/days-weather.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';

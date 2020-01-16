@@ -1,0 +1,46 @@
+<div class="box">
+  <div class="temp">
+    <p>{{todaysWeather?.main.temp}}°</p>
+  </div>
+  <div class="status">
+    <p>{{todaysWeather?.weather[0].description}}</p>
+  </div>
+  <div class="icon">
+    <img class="ic1" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" alt="" />
+    <img class="ic2" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" alt="" />
+    <img class="ic3" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" alt="" />
+    <img class="ic4" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" alt="" />
+  </div>
+  <div class="details" *ngFor="let d of details">
+    <!-- <div class="detail">{{d}}</div> -->
+    <!-- <div class="forecasts">
+      <div class="box" *ngFor="let f of forecasts">
+        <div class="info">
+          <div class="date">25 June</div>
+          <div class="desc">{{f.weather[0].description}}</div>
+          <div class="desc">{{f?.weather[0].description}}</div>
+        </div>
+        <div class="icon" [style.background-color]="colors[f.weather[0].icon.slice(0, -1)]">
+          <div class="temp">{{f?.main.temp}}°</div>
+          <img src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png" alt="">
+        </div>
+      </div>
+    </div> -->
+
+    <!--
+      main:
+        temp: 19.04
+        feels_like: 15.05
+        temp_min: 13.89
+        temp_max: 21.11
+        pressure: 1014
+        humidity: 30
+      wind:
+        speed: 3.1
+      sys:
+        sunrise: 1579149555
+        sunset: 1579186717
+     -->
+
+  </div>
+</div>

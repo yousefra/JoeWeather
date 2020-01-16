@@ -13,21 +13,17 @@ export class DaysWeatherComponent implements OnInit {
   constructor() {
     this.colors = {
       '01': '#5F4EEA',
-      '02': '#5F4EEA',
-      '03': '#F82298'
-      '04': '#F82298'
-      '09': '#F82298'
-      '10': '#F82298'
-      '11': '#F82298'
-      '13': '#F82298'
-      '50': '#F82298'
+      '02': '#28E0AE',
+      '03': '#FF0090',
+      '04': '#FFAE01',
+      '09': '#2299F9',
+      '10': '#DA2727',
+      '11': '#D0DDF7',
+      '13': '#5F4EEA',
+      '50': '#5F4EEA'
     };
   }
 
-  ngOnInit() {
-    setTimeout(() => {
-      console.log(this.forecasts);
-    }, 2000);
-  }
+  ngOnInit() { }
 
 }

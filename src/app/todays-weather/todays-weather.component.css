@@ -2,6 +2,7 @@
     background: linear-gradient(0deg, #5F4EEA, #6452F0);
     margin-top: 40px;
     text-align: center;
+    cursor: pointer;
     color: white;
 }
 
