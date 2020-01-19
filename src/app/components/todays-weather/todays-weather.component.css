@@ -1,9 +1,9 @@
 .box {
-    background: linear-gradient(0deg, #5F4EEA, #6452F0);
+    /* background: linear-gradient(0deg, #5F4EEA, #6452F0); */
     margin-top: 40px;
     text-align: center;
     cursor: pointer;
-    color: white;
+    color: #1c1c35;;
 }
 
 .temp {
@@ -36,11 +36,24 @@
 }
 
 .icon .ic4 {
-    opacity: .6;
+    opacity: .7;
+}
+
+.icon .ic5 {
+    opacity: .4;
+}
+
+.icon .ic6 {
+    position: absolute;
+    opacity: .8;
 }
 
 .status {
-    padding-bottom: 20px;
     margin-top: -15px;
     font-size: 21px;
+}
+
+.date {
+    margin-top: -10px;
+    padding-bottom: 1px;
 }

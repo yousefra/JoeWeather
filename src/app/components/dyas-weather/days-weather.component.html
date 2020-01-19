@@ -1,0 +1,17 @@
+<div class="forecasts">
+    <div
+        class="box"
+        *ngFor="let f of forecasts"
+        [routerLink]="['details', { isNotToday: 'true', todaysWeather: f | json }]"
+    >
+        <div class="info">
+            <div class="date" [style.color]="getColor(f.weather[0].icon) + 'ed'">{{getDate(f.dt_txt) | date: 'E, dd MMM'}}</div>
+            <div class="desc" [style.color]="getColor(f.weather[0].icon)">{{f.weather[0].description}}</div>
+            <!-- <div class="desc">{{f?.weather[0].description}}</div> -->
+        </div>
+        <div class="icon" [style.background]="getColor(f.weather[0].icon)">
+            <div class="temp">{{f?.main.temp | temp}}</div>
+            <img src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png" alt="">
+        </div>
+    </div>
+</div>

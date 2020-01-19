@@ -14,13 +14,12 @@
 }
 
 .box .info {
-    margin-top: 15px;
+    margin: 15px 5px 0 5px;
     text-align: center;
 }
 
 .icon {
     height: 50px;
-    /* background: linear-gradient(0deg, #5F4EEA, #6452F0); */
     border-radius: 25px;
     margin-top: 15px;
     display: flex;
@@ -34,10 +33,16 @@
 }
 
 .info .desc {
-    margin: 0 auto;
+    margin: 3px auto 0 auto;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .icon .temp {
     color: white;
     font-size: 18px;
+}
+
+.info .date {
+    font-size: 15px;
 }

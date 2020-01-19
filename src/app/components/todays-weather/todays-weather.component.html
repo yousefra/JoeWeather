@@ -1,0 +1,23 @@
+<div
+    class="box"
+    [style.background]="backgroundColor"
+    [routerLink]="['details', { todaysWeather: todaysWeather | json }]"
+>
+    <div class="temp">
+        <p>{{ todaysWeather?.main.temp | temp }}</p>
+    </div>
+    <div class="status">
+        <p>{{ (todaysWeather?.weather)[0].description }}</p>
+    </div>
+    <div class="date">
+        <p>{{ getDate(todaysWeather?.dt) | date: 'E, d MMM' }}</p>
+    </div>
+    <div class="icon">
+        <img class="ic1" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" />
+        <img class="ic2" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" />
+        <img class="ic3" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" />
+        <img class="ic4" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" />
+        <img class="ic5" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" />
+        <img class="ic6" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" />
+    </div>
+</div>
