@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,7 +28,8 @@ import { DatePipe } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AuthModule
   ],
   providers: [DatePipe, TempPipe],
   bootstrap: [AppComponent]

@@ -7,15 +7,17 @@
 }
 
 .box {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    height: 146px;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
     background-color: #fff;
 }
 
 .box .info {
     margin: 15px 5px 0 5px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .icon {
