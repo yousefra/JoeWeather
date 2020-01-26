@@ -1,10 +1,18 @@
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
+
 <!-- #190035 -->
 <header>
-  <div class="menu">
-    <img class="icon icon-left" src="../../assets/icons/menu.png" alt="" />
-  </div>
-  <div class="city">Hebron, WB</div>
-  <div class="search">
-    <img class="icon icon-right" src="../../assets/icons/search.png" alt="" />
-  </div>
+    <div class="menu">
+        <img class="icon icon-left" src="../../assets/icons/menu.png" alt="" />
+    </div>
+    <div class="city">Hebron, WB</div>
+    <div class="search" (click)="openNav()">
+        <img class="icon icon-right" src="../../assets/icons/search.png" alt="" />
+    </div>
 </header>

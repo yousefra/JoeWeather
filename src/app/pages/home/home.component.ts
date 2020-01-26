@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { WeatherAPIService } from 'src/app/services/weather-api.service';
 import { environment } from 'src/environments/environment';
 
@@ -12,9 +12,11 @@ export class HomeComponent implements OnInit {
 
     private currentDate: number | Date;
     private finalDate: number | Date;
-    public todaysWeather: any;
-    public forecasts: any;
-    public detailedForecasts: any;
+    todaysWeather: any;
+    forecasts: any;
+    detailedForecasts: any;
+    cities: any;
+    inputData: any;
 
     constructor(private weatherAPI: WeatherAPIService, private datePipe: DatePipe) {
         this.currentDate = new Date();
@@ -31,19 +33,33 @@ export class HomeComponent implements OnInit {
         navigator.geolocation.getCurrentPosition(res => {
             const lat = res.coords.latitude;
             const lon = res.coords.longitude;
-            // tslint:disable-next-line: no-shadowed-variable
-            this.weatherAPI.getTodayByCoords(lat, lon).subscribe(res => {
-                this.todaysWeather = res;
-            });
-            // tslint:disable-next-line: no-shadowed-variable
-            this.weatherAPI.getFourDaysByCoords(lat, lon).subscribe(res => {
-                this.forecasts = res;
-                this.detailedForecasts = this.forecasts.list
-                    .filter(elem => elem.dt > this.currentDate && elem.dt < this.finalDate);
-                this.forecasts = this.detailedForecasts
-                    .filter(elem => new Date(elem.dt_txt).getHours() === 12);
-            });
+            this.getCurrentWeather(lat, lon);
+            this.getForecasts(lat, lon);
+            this.getCities(lat, lon);
+            this.inputData = { todaysWeather: this.todaysWeather, forecasts: this.forecasts, getColor: this.getColor  };
         });
+    }
+
+    getForecasts(lat: number, lon: number) {
+        this.weatherAPI.getFourDaysByCoords(lat, lon).subscribe(res => {
+            this.forecasts = res;
+            this.detailedForecasts = this.forecasts.list
+                .filter(elem => elem.dt > this.currentDate && elem.dt < this.finalDate);
+            this.forecasts = this.detailedForecasts
+                .filter(elem => new Date(elem.dt_txt).getHours() === 12);
+        });
+    }
+
+    getCurrentWeather(lat: number, lon: number): any {
+        this.weatherAPI.getTodayByCoords(lat, lon).subscribe(res => {
+            this.todaysWeather = res;
+        });
+    }
+
+    getCities(lat: number, lon: number) {
+        this.weatherAPI.getCities(lat, lon).subscribe(res => {
+            this.cities = res;
+        })
     }
 
     getForecastsByDay(date: string) {

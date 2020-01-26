@@ -1,11 +1,12 @@
+<app-header [cities]="cities"></app-header>
 <app-todays-weather [todaysWeather]="todaysWeather" [getColor]="getColor"></app-todays-weather>
 <div class="details">
-    <div class="detail" *ngFor="let d of details" [style.background]="detailColor">
-        <div class="info label">
-            <p>{{d.title}}</p>
-        </div>
-        <div class="info value">
-            <p>{{d.value}}</p>
-        </div>
-    </div>
+	<div class="detail" *ngFor="let d of details" [style.background]="detailColor">
+		<div class="info label">
+			<p>{{d.title}}</p>
+		</div>
+		<div class="info value">
+			<p>{{d.value}}</p>
+		</div>
+	</div>
 </div>
