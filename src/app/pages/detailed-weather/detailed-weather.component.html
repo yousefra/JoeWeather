@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-todays-weather [todaysWeather]="todaysWeather" [getColor]="getColor"></app-todays-weather>
+<app-header [cities]="cities" [cityName]="cityName" (newCity)="cityChanged($event)"></app-header>
+<app-todays-weather [todaysWeather]="todaysWeather"></app-todays-weather>
 <div class="details">
 	<div class="detail" *ngFor="let d of details" [style.background]="detailColor">
 		<div class="info label">

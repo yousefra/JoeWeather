@@ -1,3 +1,4 @@
+import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,9 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DaysWeatherComponent implements OnInit {
 
     @Input() forecasts: any;
-    @Input() getColor: any;
 
-    constructor() { }
+    constructor(private weather: WeatherService) { }
 
     ngOnInit() { }
 
@@ -18,4 +18,7 @@ export class DaysWeatherComponent implements OnInit {
         return new Date(textDate);
     }
 
+    getColor(icon: string, gradiant = true) {
+        return this.weather.getColor(icon, gradiant);
+    }
 }

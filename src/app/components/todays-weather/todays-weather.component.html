@@ -1,8 +1,4 @@
-<div
-    class="box"
-    [style.background]="backgroundColor"
-    [routerLink]="['details', { todaysWeather: todaysWeather | json }]"
->
+<div class="box" [style.background]="backgroundColor" [routerLink]="['details/0', { city: todaysWeather?.name | json }]">
     <div class="temp">
         <p>{{ todaysWeather?.main.temp | temp }}</p>
     </div>

@@ -1,9 +1,8 @@
-import { WeatherAPIService } from 'src/app/services/weather-api.service';
+import { DatePipe } from '@angular/common';
+import { WeatherService } from './../../services/weather.service';
 import { TempPipe } from './../../pipes/temp.pipe';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-detailed-weather',
@@ -12,17 +11,23 @@ import { DatePipe } from '@angular/common';
 })
 export class DetailedWeatherComponent implements OnInit {
 
-	todaysWeather;
-	details;
+	todaysWeather: any;
+	forecasts: any;
+	details: any;
 	objectKeys = Object.keys;
-	detailColor;
+	detailColor: string;
 	cities: any;
 
-	constructor(private route: ActivatedRoute, private weatherAPI: WeatherAPIService, private datePipe: DatePipe, private tempPipe: TempPipe) { }
+	constructor(private route: ActivatedRoute, private weather: WeatherService, private datePipe: DatePipe, private tempPipe: TempPipe) { }
 
 	ngOnInit() {
+		const id = parseInt(this.route.snapshot.params.id);
 		this.route.params.subscribe(params => {
-			this.todaysWeather = JSON.parse(params.todaysWeather);
+			const city = JSON.parse(params.city);
+			const data = this.getWeatherByCity(city);
+			if (id) {
+				this.todaysWeather = this.forecasts[id - 1];
+			}
 
 			this.detailColor = `linear-gradient(0deg, ${this.getColor(this.todaysWeather.weather[0].icon, false)}9E, ${this.getColor(this.todaysWeather.weather[0].icon, false)}4A)`;
 			this.details = [
@@ -43,20 +48,17 @@ export class DetailedWeatherComponent implements OnInit {
 		});
 	}
 
-	// getCities(lat: number, lon: number) {
-	// 	this.weatherAPI.getCities(lat, lon).subscribe(res => {
-	// 		this.cities = res;
-	// 	})
-	// }
-
-	getColor(icon: string, gradiant = true) {
-		if (icon) {
-			const color = environment.colors[icon.slice(0, -1)];
-			if (gradiant) {
-				return `linear-gradient(20deg, ${color}, ${color}96)`;
-			}
-			return color;
-		}
+	getWeatherByCity(city: string) {
+		this.weather.getWeatherByCity(city).then(data => {
+			return { todaysWeather: data.todaysWeather, forecasts: data.forecasts };
+		});
 	}
 
+	cityChanged(name: string) {
+		this.getWeatherByCity(name);
+	}
+
+	getColor(icon: string, gradiant = true) {
+		return this.weather.getColor(icon, gradiant);
+	}
 }

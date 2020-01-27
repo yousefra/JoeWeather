@@ -1,3 +1,4 @@
+import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -7,18 +8,17 @@ import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 })
 export class TodaysWeatherComponent implements OnInit {
 
-    @Input() todaysWeather;
-    @Input() getColor;
-    public backgroundColor: string;
+    @Input() todaysWeather: any;
+    backgroundColor: string;
 
-    constructor() { }
+    constructor(private weather: WeatherService) { }
 
     ngOnInit() {
     }
 
     ngOnChanges(changes: SimpleChanges) {
         if (this.todaysWeather) {
-            this.backgroundColor = `linear-gradient(45deg, ${this.getColor(this.todaysWeather.weather[0].icon, false)}, ${this.getColor(this.todaysWeather.weather[0].icon, false)}73)`;
+            this.backgroundColor = `linear-gradient(45deg, ${this.weather.getColor(this.todaysWeather.weather[0].icon, false)}, ${this.weather.getColor(this.todaysWeather.weather[0].icon, false)}73)`;
         }
     }
 
