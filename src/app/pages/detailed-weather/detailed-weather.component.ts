@@ -39,15 +39,15 @@ export class DetailedWeatherComponent implements OnInit {
 				this.details.push({ title: 'Sunset', value: this.datePipe.transform(sunsetDate, 'h:mm a') });
 				this.details.push({ title: 'Sunrise', value: this.datePipe.transform(sunriseDate, 'h:mm a') });
 			}
-			this.getCities(this.todaysWeather.coord.lat, this.todaysWeather.coord.lon);
+			// this.getCities(this.todaysWeather.coord.lat, this.todaysWeather.coord.lon);
 		});
 	}
 
-	getCities(lat: number, lon: number) {
-		this.weatherAPI.getCities(lat, lon).subscribe(res => {
-			this.cities = res;
-		})
-	}
+	// getCities(lat: number, lon: number) {
+	// 	this.weatherAPI.getCities(lat, lon).subscribe(res => {
+	// 		this.cities = res;
+	// 	})
+	// }
 
 	getColor(icon: string, gradiant = true) {
 		if (icon) {

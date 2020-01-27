@@ -1,4 +1,4 @@
-import { AuthModule } from './auth/auth.module';
+import { LoginComponent } from './pages/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,25 +13,27 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TempPipe } from './pipes/temp.pipe';
 import { DatePipe } from '@angular/common';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodaysWeatherComponent,
-    DetailedWeatherComponent,
-    DaysWeatherComponent,
-    HomeComponent,
-    HeaderComponent,
-    TempPipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    AuthModule
-  ],
-  providers: [DatePipe, TempPipe],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		TodaysWeatherComponent,
+		DetailedWeatherComponent,
+		DaysWeatherComponent,
+		HomeComponent,
+		HeaderComponent,
+		LoginComponent,
+		TempPipe,
+		SearchPipe
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		FormsModule
+	],
+	providers: [DatePipe, TempPipe],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

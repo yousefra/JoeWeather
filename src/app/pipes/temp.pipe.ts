@@ -11,5 +11,4 @@ export class TempPipe implements PipeTransform {
         }
         return value.toFixed(0) + '°';
     }
-
 }

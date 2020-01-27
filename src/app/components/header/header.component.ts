@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { WeatherAPIService } from 'src/app/services/weather-api.service';
 
 @Component({
 	selector: 'app-header',
@@ -8,13 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
 	@Input() cities: any;
+	@Input() cityName: string;
+	@Output() newCity = new EventEmitter();
 	todaysWeather: any;
 	getColor: any;
 
-	constructor() { }
+	constructor(private weatherAPI: WeatherAPIService) { }
 
 	ngOnInit() {
-		console.log(this.cities)
+		console.log(this.cities);
+	}
+
+	changeCity(name: string) {
+		this.closeNav();
+		this.newCity.emit(name);
 	}
 
 	openNav() {
