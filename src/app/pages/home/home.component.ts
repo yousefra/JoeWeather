@@ -19,7 +19,9 @@ export class HomeComponent implements OnInit {
 			const lat = res.coords.latitude;
 			const lon = res.coords.longitude;
 			this.getWeather(lat, lon);
-			this.cities = this.weather.getCities(lat, lon);
+			this.weather.getCities(lat, lon).then(res => {
+				this.cities = res;
+			});
 		});
 	}
 

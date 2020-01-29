@@ -17,14 +17,15 @@ export class DetailedWeatherComponent implements OnInit {
 	objectKeys = Object.keys;
 	detailColor: string;
 	cities: any;
+	cityName: string;
 
 	constructor(private route: ActivatedRoute, private weather: WeatherService, private datePipe: DatePipe, private tempPipe: TempPipe) { }
 
 	ngOnInit() {
 		const id = parseInt(this.route.snapshot.params.id);
 		this.route.params.subscribe(async params => {
-			const city = JSON.parse(params.city);
-			const data = await this.getWeatherByCity(city);
+			this.cityName = JSON.parse(params.city);
+			const data = await this.getWeatherByCity(this.cityName);
 			this.todaysWeather = data.todaysWeather;
 			this.forecasts = data.forecasts;
 			if (id) {
@@ -40,13 +41,16 @@ export class DetailedWeatherComponent implements OnInit {
 				{ title: 'Humidity', value: this.todaysWeather.main.humidity + '%' },
 				{ title: 'Wind Speed', value: this.todaysWeather.wind.speed + ' m/s' }
 			];
-			if (!params.isNotToday) {
+			if (!id) {
 				const sunsetDate = new Date(this.todaysWeather.sys.sunset);
 				const sunriseDate = new Date(this.todaysWeather.sys.sunrise);
 				this.details.push({ title: 'Sunset', value: this.datePipe.transform(sunsetDate, 'h:mm a') });
 				this.details.push({ title: 'Sunrise', value: this.datePipe.transform(sunriseDate, 'h:mm a') });
 			}
-			// this.getCities(this.todaysWeather.coord.lat, this.todaysWeather.coord.lon);
+			this.weather.getCitiesByCity(this.cityName).then(res => {
+				this.cities = res;
+				console.log(this.cities);
+			});
 		});
 	}
 

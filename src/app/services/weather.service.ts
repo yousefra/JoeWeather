@@ -65,9 +65,19 @@ export class WeatherService {
 	}
 
 	getCities(lat: number, lon: number) {
-		this.weatherAPI.getCities(lat, lon).subscribe(res => {
-			return res;
-		})
+		return new Promise(resolve => {
+			this.weatherAPI.getCities(lat, lon).subscribe(res => {
+				resolve(res);
+			})
+		});
+	}
+
+	getCitiesByCity(city: string) {
+		return new Promise(resolve => {
+			this.weatherAPI.getCitiesByCity(city).subscribe(res => {
+				resolve(res);
+			})
+		});
 	}
 
 	getColor(icon: string, gradiant = true) {

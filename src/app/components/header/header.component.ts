@@ -16,9 +16,7 @@ export class HeaderComponent implements OnInit {
 
 	constructor(private weatherAPI: WeatherAPIService) { }
 
-	ngOnInit() {
-		console.log(this.cities);
-	}
+	ngOnInit() { }
 
 	changeCity(name: string) {
 		this.closeNav();
