@@ -29,6 +29,10 @@ export class WeatherAPIService {
         return this.getWeather('find', unit, { lat, lon });
     }
 
+    getCitiesByCity(city: string, unit = 'c') {
+        return this.getWeather('find', unit, { q: city });
+    }
+
     getWeather(base: string, unit: string, params: any) {
         const units = unit === 'c' ? 'metric' : 'imperial';
         const baseParams = {

@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DaysWeatherComponent implements OnInit {
 
     @Input() forecasts: any;
+    @Input() cityName: string;
 
     constructor(private weather: WeatherService) { }
 

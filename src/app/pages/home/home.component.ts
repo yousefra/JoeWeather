@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
 	todaysWeather: any;
 	forecasts: any;
 	cities: any;
-	cityName: string;
 
 	constructor(private weather: WeatherService) { }
 

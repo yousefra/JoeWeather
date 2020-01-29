@@ -1,9 +1,6 @@
 <div class="forecasts">
-    <div
-        class="box"
-        *ngFor="let f of forecasts"
-        [routerLink]="['details', { isNotToday: 'true', todaysWeather: f | json }]"
-    >
+    <div class="box" *ngFor="let f of forecasts; index as i" [routerLink]="['details/' + i, { city: cityName | json }]"
+        [routerLink]="['details', { isNotToday: 'true', todaysWeather: f | json }]">
         <div class="info">
             <div class="date" [style.color]="getColor(f.weather[0].icon) + 'ed'">{{getDate(f.dt_txt) | date: 'E, dd MMM'}}</div>
             <div class="desc" [style.color]="getColor(f.weather[0].icon)">{{f.weather[0].description}}</div>

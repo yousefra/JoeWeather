@@ -1,3 +1,3 @@
-<app-header [cities]="cities" [cityName]="cityName" (newCity)="cityChanged($event)"></app-header>
+<app-header [cities]="cities" [cityName]="todaysWeather?.name" (newCity)="cityChanged($event)"></app-header>
 <app-todays-weather [todaysWeather]="todaysWeather"></app-todays-weather>
-<app-days-weather [forecasts]="forecasts"></app-days-weather>
+<app-days-weather [forecasts]="forecasts" [cityName]="todaysWeather?.name"></app-days-weather>

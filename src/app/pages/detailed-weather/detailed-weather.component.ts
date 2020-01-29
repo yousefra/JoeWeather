@@ -22,9 +22,11 @@ export class DetailedWeatherComponent implements OnInit {
 
 	ngOnInit() {
 		const id = parseInt(this.route.snapshot.params.id);
-		this.route.params.subscribe(params => {
+		this.route.params.subscribe(async params => {
 			const city = JSON.parse(params.city);
-			const data = this.getWeatherByCity(city);
+			const data = await this.getWeatherByCity(city);
+			this.todaysWeather = data.todaysWeather;
+			this.forecasts = data.forecasts;
 			if (id) {
 				this.todaysWeather = this.forecasts[id - 1];
 			}
@@ -49,9 +51,11 @@ export class DetailedWeatherComponent implements OnInit {
 	}
 
 	getWeatherByCity(city: string) {
-		this.weather.getWeatherByCity(city).then(data => {
-			return { todaysWeather: data.todaysWeather, forecasts: data.forecasts };
-		});
+		return new Promise(resolve => {
+			this.weather.getWeatherByCity(city).then(data => {
+				resolve({ todaysWeather: data.todaysWeather, forecasts: data.forecasts });
+			});
+		})
 	}
 
 	cityChanged(name: string) {
