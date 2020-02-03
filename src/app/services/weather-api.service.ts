@@ -9,7 +9,7 @@ export class WeatherAPIService {
 
     constructor(private http: HttpClient) { }
 
-    getTodayByCity(city: string, unit = 'c') {
+    getTodayByCity(city: string, unit = 'c'): any {
         return this.getWeather('weather', unit, { q: city });
     }
 
@@ -33,7 +33,7 @@ export class WeatherAPIService {
         return this.getWeather('find', unit, { q: city });
     }
 
-    getWeather(base: string, unit: string, params: any) {
+    getWeather(base: string, unit: string, params: any): any {
         const units = unit === 'c' ? 'metric' : 'imperial';
         const baseParams = {
             APPID: environment.weatherApiKey

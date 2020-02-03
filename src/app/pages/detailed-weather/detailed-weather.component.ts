@@ -25,7 +25,7 @@ export class DetailedWeatherComponent implements OnInit {
 		const id = parseInt(this.route.snapshot.params.id);
 		this.route.params.subscribe(async params => {
 			this.cityName = JSON.parse(params.city);
-			const data = await this.getWeatherByCity(this.cityName);
+			const data: any = await this.getWeatherByCity(this.cityName);
 			this.todaysWeather = data.todaysWeather;
 			this.forecasts = data.forecasts;
 			if (id) {
