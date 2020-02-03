@@ -1,59 +1,63 @@
 .box {
-    /* background: linear-gradient(0deg, #5F4EEA, #6452F0); */
-    margin-top: 40px;
-    text-align: center;
-    cursor: pointer;
-    color: #1c1c35;;
+	/* background: linear-gradient(0deg, #5F4EEA, #6452F0); */
+	margin-top: 40px;
+	text-align: center;
+	cursor: pointer;
+	color: #1c1c35;
 }
 
 .temp {
-    padding-top: 40px;
-    font-weight: 400;
-    font-size: 82px;
+	padding-top: 40px;
+	font-weight: 400;
+	font-size: 82px;
 }
 
 .temp p {
-    margin: 0;
+	margin: 0;
 }
 
 .icon {
-    position: absolute;
-    top: 70px;
-    right: 70px;
-    bottom: auto;
+	position: absolute;
+	top: 100px;
+	right: 70px;
+	bottom: auto;
+}
+
+.icon img {
+	width: 90px;
 }
 
 .icon .ic1 {
-    opacity: .5;
+	opacity: 0.3;
 }
 
 .icon .ic2 {
-    opacity: .8;
+	opacity: 0.6;
 }
 
 .icon .ic3 {
-    opacity: .3;
+	opacity: 0.2;
 }
 
 .icon .ic4 {
-    opacity: .7;
+	opacity: 0.5;
 }
 
 .icon .ic5 {
-    opacity: .4;
+	opacity: 0.3;
 }
 
 .icon .ic6 {
-    position: absolute;
-    opacity: .8;
+	position: absolute;
+	opacity: 0.8;
 }
 
 .status {
-    margin-top: -15px;
-    font-size: 21px;
+	margin-top: -15px;
+	font-size: 21px;
 }
 
 .date {
-    margin-top: -10px;
-    padding-bottom: 1px;
+	margin-top: -10px;
+	padding-bottom: 1px;
 }
