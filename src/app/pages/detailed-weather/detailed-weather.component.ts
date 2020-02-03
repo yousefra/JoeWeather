@@ -47,7 +47,8 @@ export class DetailedWeatherComponent implements OnInit {
 				this.details.push({ title: 'Sunset', value: this.datePipe.transform(sunsetDate, 'h:mm a') });
 				this.details.push({ title: 'Sunrise', value: this.datePipe.transform(sunriseDate, 'h:mm a') });
 			}
-			this.weather.getCitiesByCity(this.cityName).then(res => {
+			// this.weather.getCitiesByCity(this.cityName).then(res => {
+			this.weather.getCities(31.527531, 35.101830).then(res => {
 				this.cities = res;
 				console.log(this.cities);
 			});
