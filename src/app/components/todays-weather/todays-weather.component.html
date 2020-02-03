@@ -6,7 +6,7 @@
         <p>{{ (todaysWeather?.weather)[0].description }}</p>
     </div>
     <div class="date">
-        <p>{{ getDate(todaysWeather?.dt) | date: 'E, d MMM' }}</p>
+        <p>{{ currentDate | date: 'E, d MMM' }}</p>
     </div>
     <div class="icon">
         <img class="ic1" src="http://openweathermap.org/img/wn/{{todaysWeather?.weather[0].icon}}@2x.png" />

@@ -10,10 +10,12 @@ export class TodaysWeatherComponent implements OnInit {
 
     @Input() todaysWeather: any;
     backgroundColor: string;
+    currentDate: Date;
 
     constructor(private weather: WeatherService) { }
 
     ngOnInit() {
+        this.currentDate = new Date();
     }
 
     ngOnChanges(changes: SimpleChanges) {
