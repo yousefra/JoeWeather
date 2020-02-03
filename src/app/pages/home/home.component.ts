@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit() {
 		// navigator.geolocation.getCurrentPosition(res => {
-		const lat = 31.942816500000003; //res.coords.latitude;
-		const lon = 35.2571781; //res.coords.longitude;
+		const lat = 31.527531; //res.coords.latitude;
+		const lon = 35.101830; //res.coords.longitude;
 		this.getWeather(lat, lon);
 		this.weather.getCities(lat, lon).then(res => {
 			this.cities = res;
