@@ -1,33 +1,22 @@
 <div class="row">
-	<div class="col-6">
-		<h3>Login</h3>
+	<div class="header">
+		<div class="header-shape"><img src="../../../assets/images/header-shape.png"></div>
+		<h3 class="signin">Sign in</h3>
+	</div>
+	<div class="signin-form">
 		<form #f="ngForm" (ngSubmit)="onSubmit(f)">
 			<div class="form-group">
-				<label for="email">Email</label>
-				<input
-					type="email"
-					name="email"
-					ngModel
-					required
-					#email="ngModel"
-					class="form-control"
-					placeholder="Enter email"
-				/>
+				<input class="form-control" type="email" name="email" ngModel required #email="ngModel" placeholder="Email" email="true" />
 			</div>
 			<div class="form-group">
-				<label for="password">Password</label>
-				<input
-					type="password"
-					name="password"
-					ngModel
-					required
-					#password="ngModel"
-					class="form-control"
-					placeholder="Enter email"
-				/>
+				<input class="form-control" type="password" name="password" ngModel required #password="ngModel"
+					placeholder="Password" />
 			</div>
-			<button type="submit" [disabled]="!f.valid" class="btn-btn-primary">
-				Login
+			<div class="form-group forgot">
+				<p>Forgot you password?</p>
+			</div>
+			<button type="submit" [disabled]="!f.valid" class="btn form-control">
+				Sign in
 			</button>
 		</form>
 	</div>

@@ -1,0 +1,69 @@
+.row {
+	height: 100%;
+	display: grid;
+	grid-template-rows: 40% auto;
+	text-align: center;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header-shape {
+	padding-bottom: 28px;
+	position: absolute;
+	z-index: 0;
+}
+
+.header-shape img {
+	width: 93%;
+}
+
+.signin {
+	z-index: 1;
+	color: white;
+	font-size: 45px;
+	text-transform: none;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-group input::placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.form-control {
+	border: 0;
+	border-radius: 50px;
+	font-size: 22px;
+	padding: 20px 30px;
+	width: 90%;
+	margin-top: 15px;
+}
+
+.btn:disabled {
+	background-color: #ff75ac;
+}
+
+.btn {
+	color: white;
+	background-color: #ff65a3;
+}
+
+.forgot {
+	margin-top: 20px;
+}
+
+.forgot p {
+	margin-bottom: 5px;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+	background-color: #e2f5fc;
+}
+
+.ng-invalid:not(form) {
+	background-color: #ff00000c;
+}
