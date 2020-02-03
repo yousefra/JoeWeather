@@ -15,14 +15,14 @@ export class HomeComponent implements OnInit {
 	constructor(private weather: WeatherService) { }
 
 	ngOnInit() {
-		navigator.geolocation.getCurrentPosition(res => {
-			const lat = res.coords.latitude;
-			const lon = res.coords.longitude;
-			this.getWeather(lat, lon);
-			this.weather.getCities(lat, lon).then(res => {
-				this.cities = res;
-			});
+		// navigator.geolocation.getCurrentPosition(res => {
+		const lat = 31.942816500000003; //res.coords.latitude;
+		const lon = 35.2571781; //res.coords.longitude;
+		this.getWeather(lat, lon);
+		this.weather.getCities(lat, lon).then(res => {
+			this.cities = res;
 		});
+		// });
 	}
 
 	getWeather(lat: number, lon: number) {
