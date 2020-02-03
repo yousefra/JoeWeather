@@ -26,11 +26,11 @@ export class WeatherAPIService {
     }
 
     getCities(lat: number, lon: number, unit = 'c') {
-        return this.getWeather('find', unit, { lat, lon });
+        return this.getWeather('find', unit, { lat, lon, cnt: 14 });
     }
 
     getCitiesByCity(city: string, unit = 'c') {
-        return this.getWeather('find', unit, { q: city });
+        return this.getWeather('find', unit, { q: city, cnt: 14 });
     }
 
     getWeather(base: string, unit: string, params: any): any {
